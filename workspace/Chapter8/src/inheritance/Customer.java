@@ -6,28 +6,32 @@ public class Customer {
 	protected String customerName;
 	protected String customerGrade;
 	int bonusPoint;
-	double bonusRatio;
-	private int saleRatio;
-	private int agentID;
-
-	public Customer() {
-		customerGrade = "SILVER";
-		bonusRatio = 0.01;
-	}
+	 double bonusRatio;
+	 
+	 public Customer() {}
 
 	/*
-	 * public Customer(int customerID, String customerName) { this.customerID =
-	 * customerID; this.customerName = customerName; customerGrade = "SILVER";
-	 * bonusRatio = 0.01; }
+	 * public Customer() { 
+	 * customerGrade = "SILVER"; 
+	 * bonusRatio = 0.01;
+	 * 
+	 * System.out.println("Customer() 호출");
+	 * 
+	 * }
 	 */
+
+	public Customer(int customerID, String customerName) {
+		this.customerID = customerID;
+		this.customerName = customerName;
+		customerGrade = "SILVER";
+		bonusRatio = 0.01;
+		
+		System.out.println("Customer(int, String) 호출");
+	}
 
 	public int calcPrice(int price) {
 		if (customerGrade == "SILVER") {
 			bonusPoint += price * bonusRatio;
-		} else if (customerGrade == "VIP") {
-
-		} else if (customerGrade == "GOLD") {
-
 		}
 
 		return price;
@@ -59,6 +63,14 @@ public class Customer {
 
 	public void setCustomerGrade(String customerGrade) {
 		this.customerGrade = customerGrade;
+	}
+
+	public int getBonusPoint() {
+		return bonusPoint;
+	}
+
+	public void setBonusPoint(int bonusPoint) {
+		this.bonusPoint = bonusPoint;
 	}
 
 }
